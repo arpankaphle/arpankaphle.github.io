@@ -1,2 +1,3 @@
-# arpankaphle.github.io
-Personal Site
+# Personal Site
+
+This is the personal site of Arpan Kaphle.
