@@ -1,0 +1,33 @@
+body {
+    background: url('./images/galactic-thoughts.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #ffffff; /* white text to contrast with the dark background */
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Black with 50% opacity */
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #fff; /* Change to whatever color you want */
+    font-weight: bold; /* Makes text bold */
+    font-size: 1.2em; /* Increase the size of the text */
+}
+
+.main .section {
+    background-color: rgba(0, 0, 0, 0.5); /* same as above */
+    border-radius: 15px; /* rounded corners for a softer look */
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.text-background {
+    background: rgba(0, 0, 0, 0.5); /* half-transparent black */
+    color: white; /* white text */
+    padding: 15px; /* some padding */
+    border-radius: 10px; /* rounded corners */
+    font-weight: 500; /* slightly bold text */
+}
