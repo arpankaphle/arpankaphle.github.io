@@ -135,7 +135,9 @@ body {
 
 .carousel-description-text {
     display: none;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5 here) as per your need */
-    color: white; /* Adjust the color of the text as per your need */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the alpha value (0.5 here) as per your need */
+    color: white;
+    /* Adjust the color of the text as per your need */
     /* Add other styles as needed */
 }
