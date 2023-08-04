@@ -60,7 +60,7 @@
             <!-- Left half for text -->
             <div class="col-lg-6">
                 <div class="text-background">
-                    <h2>About Me</h2>
+                    <h2>My Story</h2>
                     <div class="container">
                         <div class="content">
                             <div class="short-text">
@@ -101,6 +101,22 @@
                                     building great projects.
                                 </p>
                                 <button class="read-more">Read More</button>
+                                <button class="read-brief">Brief Summary</button>
+                            </div>
+                            <div class="summary-text" style="display: none;">
+                                <p>
+                                    Born in Nepal, immigrated at age 5, grew up in Texas.</br>
+                                    High School Diploma: School of Science and Engineering in 2017.</br>
+                                    B.S in Computer Science and Electrical Engineering, B.S in Physics, awarded 2021 from the
+                                    Massachusetts Institute of Technology</br>
+                                    MIT Unmanned-Aerial-Vehicle Club President and Re-Founder, MIT International
+                                    Students Organization Webmaster</br>
+                                    MIT DeltaV, MIT II Founding team involvement</br>
+                                    MEng Computer Science, focus on AI, awarded 2022 from the Massachusetts Institute of
+                                    Technology</br>
+                                    Google SWE (2022 - Present)</br>
+                                </p>
+                                <button class="read-default">Read more</button>
                             </div>
                             <div class="long-text" style="display:none;">
                                 <p>
@@ -328,12 +344,40 @@
     <script>
         $(document).ready(function () {
             $('.read-more').click(function () {
+                $('.summary-text').hide();
                 $('.short-text').hide();
                 $('.long-text').show();
+                $('.read-more').hide();
+                $('.read-default').hide();
+                $('.read-brief').show();
+                $('.read-less').show();
             });
             $('.read-less').click(function () {
+                $('.summary-text').hide();
                 $('.long-text').hide();
                 $('.short-text').show();
+                $('.read-more').show();
+                $('.read-default').hide();
+                $('.read-brief').show();
+                $('.read-less').hide();
+            });
+            $('.read-default').click(function () {
+                $('.long-text').hide();
+                $('.short-text').show();
+                $('.summary-text').hide();
+                $('.read-more').show();
+                $('.read-default').hide();
+                $('.read-brief').show();
+                $('.read-less').hide();
+            });
+            $('.read-brief').click(function () {
+                $('.long-text').hide();
+                $('.short-text').hide();
+                $('.summary-text').show();
+                $('.read-more').hide();
+                $('.read-default').show();
+                $('.read-brief').hide();
+                $('.read-less').hide();
             });
 
 
