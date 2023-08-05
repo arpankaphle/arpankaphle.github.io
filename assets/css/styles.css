@@ -141,3 +141,16 @@ body {
     /* Adjust the color of the text as per your need */
     /* Add other styles as needed */
 }
+
+.info-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 5px 0;
+}
+
+.info-list i {
+    margin-right: 10px;
+}
