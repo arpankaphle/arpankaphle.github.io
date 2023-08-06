@@ -38,3 +38,14 @@
 .accordion-header {
     margin-bottom: 20px; /* Add space below each header - allows modularity since multiple copied objects reuse this class */
 }
+
+.coursework-intro {
+    background-color: rgba(0, 0, 0, 0.6); /* Translucent black background */
+    color: #ffffff; /* White text */
+    padding: 15px 20px; /* Some padding for aesthetics */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1.1em; /* Slightly larger text */
+    margin-bottom: 30px; /* Space between this div and the content below */
+    text-align: center; /* Center the text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+}
