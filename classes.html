@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Arpan Kaphle's personal website, with description, experience, and shared hobbies/projects.">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="./assets/css/headerbg.css" rel="stylesheet">
+    <link href="./assets/css/accordion.css" rel="stylesheet">
+
+    <title>Arpan Kaphle</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="./index.html">Arpan Kaphle</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./classes.html">Course Work</a>
+                </li>
+                <!--
+                <li class="nav-item">
+                    <a class="nav-link" href="#papers">Papers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hobbies">Hobbies and Links</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link" href="resume.html">Experience</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="accordion custom-accordion" id="courseAccordion">
+        <div class="accordion-item">
+            <div class="accordion-header" id="heading1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                    aria-expanded="true" aria-controls="collapse1" data-bs-parent="#courseAccordion">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="col-6 text-center">
+                            <span>Computer Science and Related</span>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
+                data-bs-parent="#courseAccordion">
+                <div class="accordion-body">
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>G</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal">6.858 - Design and Implementation of Secure Computer Systems</a>
+                        </div>
+                        <div class="col-6">
+                            <span>Excellent <a href="https://css.csail.mit.edu/6.858/2022/general.html">class</a>, spanning from buffer overflows, OS security, worm generation, creating a secure filesystem and more.</span>
+                        </div>
+                    </div>
+                    <!-- Repeat for more classes if required -->
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>G</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal">6.824 (now 6.5840) - Distributed Systems</a>
+                        </div>
+                        <div class="col-6">
+                            <span>Excellent <a href="https://pdos.csail.mit.edu/6.824/">class</a>, spanning from MapReduce, to building Raft, and using built tools to make a distributed, sharded, consistent K:V store, and more.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" id="heading2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                    aria-expanded="true" aria-controls="collapse2" data-bs-parent="#courseAccordion">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="col-6 text-center">
+                            <span>Physics</span>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                data-bs-parent="#courseAccordion">
+                <div class="accordion-body">
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>UG</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal">8.286 - The Early Universe</a>
+                        </div>
+                        <div class="col-6">
+                            <span><a href="https://web.mit.edu/8.286/www/">Great class</a> taught by Prof. Alan Guth, the creator of the theory of inflation! Awesome class that answered deep questions.</span>
+                        </div>
+                    </div>
+                    <!-- Repeat for more classes if required -->
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>UG</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal2">8.282 - Introduction to Astronomy</a>
+                        </div>
+                        <div class="col-6">
+                            <span><a href="https://ocw.mit.edu/courses/8-282j-introduction-to-astronomy-spring-2006/">Great class</a> taught by Prof. Max Tegmark, this was an eye-opener about our place in the Universe.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" id="heading2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3"
+                    aria-expanded="true" aria-controls="collapse3" data-bs-parent="#courseAccordion">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="col-6 text-center">
+                            <span>Entrepeneurship</span>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading2"
+                data-bs-parent="#courseAccordion">
+                <div class="accordion-body">
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>UG</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal">6.901</a>
+                        </div>
+                        <div class="col-6">
+                            <span>TBD</span>
+                        </div>
+                    </div>
+                    <!-- Repeat for more classes if required -->
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>UG</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal2">6.933</a>
+                        </div>
+                        <div class="col-6">
+                            <span>TBD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" id="heading2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4"
+                    aria-expanded="true" aria-controls="collapse4" data-bs-parent="#courseAccordion">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="col-6 text-center">
+                            <span>Economics</span>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading2"
+                data-bs-parent="#courseAccordion">
+                <div class="accordion-body">
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>UG</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal">14.444</a>
+                        </div>
+                        <div class="col-6">
+                            <span>TBD</span>
+                        </div>
+                    </div>
+                    <!-- Repeat for more classes if required -->
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>UG</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal2">14.01</a>
+                        </div>
+                        <div class="col-6">
+                            <span>TBD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" id="heading2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5"
+                    aria-expanded="true" aria-controls="collapse5" data-bs-parent="#courseAccordion">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="col-6 text-center">
+                            <span>Misc.</span>
+                        </div>
+                        <div class="col text-center">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading2"
+                data-bs-parent="#courseAccordion">
+                <div class="accordion-body">
+                    <div class="row mb-3">
+                        <div class="col-2 text-center">
+                            <span>UG</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="#classNameModal">Greek History</a>
+                        </div>
+                        <div class="col-6">
+                            <span>TBD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Other accordion items follow similar structure -->
+    </div>
+
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.accordion-button').on('click', function (e) {
+                e.preventDefault(); // Prevent default action
+
+                var target = $(this).data('bs-target');
+
+                if ($(target).is(":visible")) {
+                    $(target).slideUp();
+                } else {
+                    $(target).slideDown();
+                    // Hide other content
+                    $('.accordion-collapse').not(target).slideUp();
+                }
+
+                // Optional: Toggle class for button styling if needed
+                $(this).toggleClass('active');
+                $('.accordion-button').not(this).removeClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
