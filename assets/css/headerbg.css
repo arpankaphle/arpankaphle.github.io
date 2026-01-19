@@ -1,23 +1,378 @@
+/* ==========================================================================
+   Global Background & Design System - Arpan Kaphle Portfolio
+   ========================================================================== */
+
+/* Root Variables for Design Consistency */
+:root {
+    --primary-gradient: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(20, 20, 40, 0.8) 100%);
+    --glass-bg: rgba(15, 15, 35, 0.85);
+    --glass-bg-light: rgba(0, 0, 0, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-color: #6366f1;
+    --accent-secondary: #8b5cf6;
+    --accent-glow: rgba(99, 102, 241, 0.4);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   BULLETPROOF FIXED BACKGROUND - Won't move during any animations
+   ========================================================================== */
+
+/* Use a pseudo-element for the background to isolate it from layout reflows */
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body {
-    background: url('./images/galactic-thoughts.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    color: #ffffff;
-    /* white text to contrast with the dark background */
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--text-primary);
+    font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    background-color: #0a0a1a;
+    /* Remove background from body - use fixed pseudo-element instead */
 }
 
+/* Fixed background layer - completely isolated from document flow */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: url('./images/galactic-thoughts.jpg') center center / cover no-repeat;
+    /* GPU acceleration to prevent repaints */
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Gradient overlay - also fixed and isolated */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: var(--primary-gradient);
+    /* GPU acceleration */
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    pointer-events: none;
+}
+
+/* Ensure content stays above background layers */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   NAVBAR - Glassmorphism Design
+   ========================================================================== */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    /* Black with 50% opacity */
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    padding: 0.8rem 1.5rem;
+    /* Prevent navbar from triggering background reflow */
+    transform: translateZ(0);
 }
 
+.navbar:hover {
+    background: rgba(20, 20, 45, 0.9) !important;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Brand Styling */
+.navbar .navbar-brand {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.4em;
+    letter-spacing: 0.5px;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.navbar .navbar-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+    transition: var(--transition-smooth);
+}
+
+.navbar .navbar-brand:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.navbar .navbar-brand:hover::after {
+    width: 100%;
+}
+
+/* Navigation Links */
 .navbar .navbar-nav .nav-link {
-    color: #fff;
-    /* Change to whatever color you want */
-    font-weight: bold;
-    /* Makes text bold */
-    font-size: 1.2em;
-    /* Increase the size of the text */
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: 0.3px;
+    padding: 0.6rem 1.2rem;
+    margin: 0 0.2rem;
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar .navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: -1;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--text-primary);
+    background: rgba(99, 102, 241, 0.15);
+    transform: translateY(-2px);
+}
+
+.navbar .navbar-nav .nav-link:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-item.active .nav-link {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* Mobile Toggle Button */
+.navbar-toggler {
+    border: 1px solid var(--glass-border);
+    padding: 0.5rem 0.8rem;
+    transition: var(--transition-smooth);
+}
+
+.navbar-toggler:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--accent-color);
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.navbar-toggler-icon {
+    filter: brightness(1.2);
+}
+
+/* ==========================================================================
+   GLASS PANELS & CARDS
+   ========================================================================== */
+.glass-panel,
+.text-background {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    /* GPU acceleration */
+    transform: translateZ(0);
+}
+
+.text-background {
+    background: var(--glass-bg-light);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   BUTTONS - Modern Styling
+   ========================================================================== */
+button,
+.btn {
+    transition: var(--transition-smooth);
+}
+
+.read-more,
+.read-less,
+.read-brief,
+.read-default {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    margin: 0.5rem 0.3rem;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.read-more:hover,
+.read-less:hover,
+.read-brief:hover,
+.read-default:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--accent-glow);
+}
+
+.read-more:active,
+.read-less:active,
+.read-brief:active,
+.read-default:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   SCROLLBAR - Custom Design
+   ========================================================================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #818cf8 0%, #a78bfa 100%);
+}
+
+/* ==========================================================================
+   SELECTION & FOCUS STATES
+   ========================================================================== */
+::selection {
+    background: var(--accent-color);
+    color: var(--text-primary);
+}
+
+::-moz-selection {
+    background: var(--accent-color);
+    color: var(--text-primary);
+}
+
+*:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==========================================================================
+   SMOOTH SCROLLING
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: #818cf8;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 991px) {
+    .navbar .navbar-nav {
+        padding: 1rem 0;
+    }
+    
+    .navbar .navbar-nav .nav-link {
+        padding: 0.8rem 1rem;
+        margin: 0.2rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .navbar-brand {
+        font-size: 1.2em;
+    }
+    
+    .navbar .navbar-nav .nav-link {
+        font-size: 1em;
+    }
+    
+    .read-more,
+    .read-less,
+    .read-brief,
+    .read-default {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+/* Prevent layout shifts during animations */
+.container,
+.container-fluid,
+main,
+section {
+    transform: translateZ(0);
+}
+
+/* Smooth animations without affecting background */
+.collapse,
+.collapsing,
+.carousel,
+.carousel-inner,
+.carousel-item {
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }

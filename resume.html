@@ -3,57 +3,125 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Experience</title>
-    <!-- Include any CSS or JavaScript files you need -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arpan Kaphle - Professional Experience and Resume">
+    <title>Experience | Arpan Kaphle</title>
+    
+    <!-- Stylesheets -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/styles.css" rel="stylesheet">
     <link href="./assets/css/headerbg.css" rel="stylesheet">
+    
     <style>
-        html,
-        body {
+        /* Page-specific overrides for resume layout */
+        html, body {
             height: 100%;
             margin: 0;
             padding: 0;
+            overflow: hidden; /* Prevent body scroll, PDF has its own */
         }
-
-        .full-height {
+        
+        /* Main container for flex layout */
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* PDF container fills remaining space */
+        .pdf-container {
+            flex: 1;
+            min-height: 0; /* Important for flex child */
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .pdf-container object {
+            width: 100%;
             height: 100%;
+            display: block;
+            border: none;
+        }
+        
+        /* Fallback link styling */
+        .pdf-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .pdf-fallback a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        .pdf-fallback a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Mark current page in nav */
+        .nav-item .nav-link[href="resume.html"] {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #ffffff;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="./index.html">Arpan Kaphle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./classes.html">Course Work</a>
-                </li>
-                <!--
-                <li class="nav-item">
-                    <a class="nav-link" href="#papers">Papers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#hobbies">Hobbies and Links</a>
-                </li>
-                -->
-                <li class="nav-item">
-                    <a class="nav-link" href="resume.html">Experience</a>
-                </li>
-            </ul>
+    <div class="page-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="./index.html">Arpan Kaphle</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./classes.html">Course Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume.html">Experience</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="pdf-container">
+            <object data="./docs/resume/myresume2023.pdf" type="application/pdf">
+                <div class="pdf-fallback">
+                    <div>
+                        <p style="margin-bottom: 1.5rem; font-size: 1.1rem; opacity: 0.9;">
+                            Your browser doesn't support embedded PDFs.
+                        </p>
+                        <a href="./docs/resume/myresume2023.pdf" download>
+                            📄 Download Resume (PDF)
+                        </a>
+                    </div>
+                </div>
+            </object>
         </div>
-    </nav>
-    <object data="./docs/resume/myresume2023.pdf" type="application/pdf" width="100%" height="100%">
-        <p>Your browser doesn't support PDFs. <a href="./docs/resume/myresume2023.pdf">Download the PDF</a>.</p>
-    </object>
+    </div>
+    
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>

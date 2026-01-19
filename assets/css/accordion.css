@@ -1,51 +1,245 @@
+/* ==========================================================================
+   Accordion Component - Modern Glassmorphism Design
+   ========================================================================== */
+
+/* Container */
 .custom-accordion {
     margin-top: 50px;
-    width: 100%;  /* Make the accordion span across the entire page width */
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
 }
 
-.custom-accordion .accordion-header {
-    background: rgba(0,0,0,0.5);  /* semi-transparent black */
-    color: white;
-    border: none;
-    display: flex;  /* Make this a flex container */
-    justify-content: space-between;  /* Distribute space equally between items */
+/* Accordion Item Wrapper */
+.accordion-item {
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* Prevent background movement during animations */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: contents;
 }
 
-.custom-accordion .accordion-body {
-    background: rgba(0,0,0,0.7);  /* more transparent black */
-    color: white;
-}
-
-.text-and-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+/* Accordion Header/Button */
+.accordion-header {
+    margin-bottom: 0;
 }
 
 .accordion-button {
     width: 100%;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
+    padding: 1.2rem 1.5rem;
+    background: linear-gradient(135deg, rgba(20, 20, 50, 0.9) 0%, rgba(30, 30, 70, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
+.accordion-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.accordion-button:hover {
+    background: linear-gradient(135deg, rgba(30, 30, 70, 0.95) 0%, rgba(50, 50, 100, 0.9) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.accordion-button:hover::before {
+    left: 100%;
+}
+
+.accordion-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+}
+
+.accordion-button.active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.25) 100%);
+    border-color: rgba(99, 102, 241, 0.5);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Icons in accordion headers */
+.accordion-button i {
+    font-size: 1.3rem;
+    color: rgba(99, 102, 241, 0.9);
+    transition: all 0.3s ease;
+}
+
+.accordion-button:hover i {
+    color: #818cf8;
+    transform: scale(1.1);
+}
+
+/* Accordion Body/Content */
 .accordion-body {
-    background: rgba(0,0,0,0.7);
-    color: white;
+    padding: 1.5rem;
+    background: rgba(10, 10, 30, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    /* Prevent background movement during animations */
+    transform: translateZ(0);
 }
 
-.accordion-header {
-    margin-bottom: 20px; /* Add space below each header - allows modularity since multiple copied objects reuse this class */
+.accordion-collapse {
+    /* Smooth animation that doesn't affect background */
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
+/* Content rows inside accordion */
+.accordion-body .row {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.accordion-body .row:last-child {
+    border-bottom: none;
+}
+
+.accordion-body .row:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 8px;
+    margin: 0 -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Level badges (G, UG, etc.) */
+.accordion-body .col-2 span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.2) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #a5b4fc;
+}
+
+/* Course name links */
+.accordion-body .col-4 a {
+    color: #818cf8;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.accordion-body .col-4 a:hover {
+    color: #a5b4fc;
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* Course description text */
+.accordion-body .col-6 span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.accordion-body .col-6 a {
+    color: #6366f1;
+    font-weight: 500;
+}
+
+.accordion-body .col-6 a:hover {
+    color: #818cf8;
+}
+
+/* ==========================================================================
+   Intro Section
+   ========================================================================== */
 .coursework-intro {
-    background-color: rgba(0, 0, 0, 0.6); /* Translucent black background */
-    color: #ffffff; /* White text */
-    padding: 15px 20px; /* Some padding for aesthetics */
-    border-radius: 8px; /* Rounded corners */
-    font-size: 1.1em; /* Slightly larger text */
-    margin-bottom: 30px; /* Space between this div and the content below */
-    text-align: center; /* Center the text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+    background: linear-gradient(135deg, rgba(20, 20, 50, 0.9) 0%, rgba(30, 30, 70, 0.85) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 16px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 30px auto;
+    max-width: 1200px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* GPU acceleration */
+    transform: translateZ(0);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .accordion-button {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .accordion-body {
+        padding: 1rem;
+    }
+    
+    .accordion-body .row {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .accordion-body .col-2,
+    .accordion-body .col-4,
+    .accordion-body .col-6 {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    
+    .accordion-body .col-2 span {
+        margin: 0 auto 0.5rem;
+    }
+    
+    .coursework-intro {
+        padding: 20px;
+        font-size: 1rem;
+        margin: 20px 15px;
+    }
+}
+
+/* ==========================================================================
+   Animation Performance
+   ========================================================================== */
+/* Ensure smooth animations without background movement */
+.accordion-item,
+.accordion-collapse,
+.accordion-body {
+    contain: layout style;
 }
