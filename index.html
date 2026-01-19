@@ -5,7 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-        content="Arpan Kaphle's personal website, with description, experience, and shared hobbies/projects.">
+        content="Arpan Kaphle's personal website - An exploratory and fun site with early internet vibes. Projects, hobbies, and more.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./assets/css/images/galactic-thoughts.jpg" as="image">
+    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    
+    <!-- Stylesheets -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="./assets/css/styles.css" rel="stylesheet">
@@ -55,6 +63,25 @@
     </main>
 
     <div class="container-fluid">
+        <!-- Site Intro Banner -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="text-background text-center" style="padding: 20px 30px;">
+                    <p style="margin-bottom: 0.5rem; font-size: 1.1rem;">
+                        <i class="fas fa-rocket" style="color: #6366f1; margin-right: 8px;"></i>
+                        Welcome to my <strong>exploratory & fun</strong> site — embracing early internet vibes! 🌌
+                    </p>
+                    <p style="margin-bottom: 0; font-size: 0.95rem; opacity: 0.85;">
+                        Looking for something more formal? Check out my 
+                        <a href="https://arpankaphle-edu.github.io" target="_blank" rel="noopener" 
+                           style="color: #818cf8; font-weight: 600;">
+                            professional site <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <!-- Left half for text -->
             <div class="col-lg-6">
@@ -248,39 +275,39 @@
                 <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./images/mainsite/6481proj3.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/6481proj3.png" class="d-block w-100"
                                 alt="Discovering the higgs boson via machine learning and data sciene with P-Value analysis!">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/6483projectthesis.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/6483projectthesis.png" class="d-block w-100"
                                 alt="Recreating my masters thesis on a robotic manipulation setting at smaller scale!">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/6815proj.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/6815proj.png" class="d-block w-100"
                                 alt="A fun project for 6.815, I took up astrophotography, traveled to a low skyglow area, took images, then ran C++ code over it!">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/6824finproject.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/6824finproject.png" class="d-block w-100"
                                 alt="We rebuilt Raft from scratch, then used our own implementation to make a sharded K:V store for the 6.824 Final Project!">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/6858lab5.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/6858lab5.png" class="d-block w-100"
                                 alt="We created a replica of SUNDR, a encrypted K:V filesystem with fork consistency, for the 6.858 Final Project.">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/8225paper.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/8225paper.png" class="d-block w-100"
                                 alt="For my final paper in 8.225, I got to write about Oppenheimer's Political story!">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/8282ps9.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/8282ps9.png" class="d-block w-100"
                                 alt="Highly enjoyed 8.282, an Astronomy class, where we did some algebra and calculus related to stars, space, and black holes.">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/8286finpset.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/8286finpset.png" class="d-block w-100"
                                 alt="Highly enjoyed 8.286, a class on Inflation theory (taught by the theory maker, Alan Guth)!">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/mainsite/mastersthesis.png" class="d-block w-100"
+                            <img loading="lazy" src="./images/mainsite/mastersthesis.png" class="d-block w-100"
                                 alt="My masters thesis, an in depth foray into Reinforcement Learning within the space of printed cirtcuit boards (PCBs).">
                         </div>
                         <!--... more items ...-->
